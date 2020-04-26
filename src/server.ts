@@ -2,6 +2,7 @@
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import 'express-async-errors';
+import * as Sentry from '@sentry/node';
 
 // app
 import routes from './routes';
@@ -10,6 +11,11 @@ import AppError from './errors/AppError';
 import './database';
 
 const app = express();
+
+Sentry.init({
+  dsn:
+    'https://8058ffd20cae4b8a85315d397feacec4@o383534.ingest.sentry.io/5213800',
+});
 
 app.use(cors());
 app.use(express.json());
