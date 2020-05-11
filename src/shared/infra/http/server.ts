@@ -1,14 +1,19 @@
 // libs
+import 'reflect-metadata';
+
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import 'express-async-errors';
 import * as Sentry from '@sentry/node';
 
 // app
+
+import AppError from '@shared/errors/AppError';
+import uploadConfig from '@config/upload';
 import routes from './routes';
-import uploadConfig from './config/upload';
-import AppError from './errors/AppError';
-import './database';
+
+import '@shared/infra/typeorm';
+import '@shared/container';
 
 const app = express();
 
