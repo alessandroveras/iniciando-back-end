@@ -13,6 +13,8 @@ import uploadConfig from '@config/upload';
 import routes from './routes';
 
 import '@shared/infra/typeorm';
+
+// tsyringe injetor de dependências
 import '@shared/container';
 
 const app = express();

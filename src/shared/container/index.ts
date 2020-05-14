@@ -1,5 +1,8 @@
 import { container } from 'tsyringe';
 
+// importa o mecanismo de injeção dos providers de users, atualmente o BCrypt para geração de hash
+import '@modules/users/providers';
+
 import IAppointmentsRepository from '@modules/appointments/repositories/IAppointmentsRepository';
 import AppointmentsRepository from '@modules/appointments/infra/typeorm/repositories/AppointmentsRepository';
 
