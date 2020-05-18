@@ -9,7 +9,7 @@ import uploadConfig from '@config/upload';
 import enforceAuthentication from '../middlewares/enforceAuthentication';
 
 // app -> controllers
-import UsersController from '../controllers/UsersCrontroller';
+import UsersController from '../controllers/UsersController';
 import UserAvatarController from '../controllers/UserAvatarController';
 
 const usersRouter = Router();
