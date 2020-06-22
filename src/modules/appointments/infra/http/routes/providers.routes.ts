@@ -1,5 +1,6 @@
 // libs
 import Router from 'express';
+import { celebrate, Segments, Joi } from 'celebrate';
 
 // middlewares
 import enforceAuthentication from '@modules/users/infra/http/middlewares/enforceAuthentication';
@@ -15,12 +16,24 @@ const providerDayAvailabilityController = new ProviderDayAvailabilityController(
 providersRouter.use(enforceAuthentication);
 
 providersRouter.get('/', providersController.index);
+
 providersRouter.get(
   '/:provider_id/month-availability',
+  celebrate({
+    [Segments.PARAMS]: {
+      provider_id: Joi.string().uuid().required(),
+    },
+  }),
   providerMonthAvailabilityController.index,
 );
+
 providersRouter.get(
   '/:provider_id/day-availability',
+  celebrate({
+    [Segments.PARAMS]: {
+      provider_id: Joi.string().uuid().required(),
+    },
+  }),
   providerDayAvailabilityController.index,
 );
 
